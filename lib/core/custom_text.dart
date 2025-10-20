@@ -6,3 +6,6 @@ const String hadith= "Hadith";
 const String sebha ="Sebha";
 const String setting = "Setting";
 
+const String suraNames ="Sura Names";
+
+
