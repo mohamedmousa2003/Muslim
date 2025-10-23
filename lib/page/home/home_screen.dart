@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            elevation: 0,
             backgroundColor: Colors.transparent,
             centerTitle: true,
             title: Text(islam,style: GoogleFonts.elMessiri(

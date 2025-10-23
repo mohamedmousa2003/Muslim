@@ -5,6 +5,10 @@ class RadioTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("RadioTabs"));
+    return Stack(
+      children: [
+        Image.asset("assets/head_sebha_logo.png"),
+      ],
+    );
   }
 }
