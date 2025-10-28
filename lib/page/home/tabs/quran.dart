@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muslim/core/custom_color.dart';
 import 'package:muslim/model/sura_model.dart';
+import '../../../core/constant/images_assets.dart';
 import '../custom/divider.dart';
 import '../sura_details.dart';
 
@@ -34,7 +35,7 @@ class QuranTabs extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          "assets/quran_image.png",
+          ImagePngLight.quran,
           errorBuilder: (context, error, stackTrace) =>
           const Icon(Icons.error, color: primaryColor, size: 40),
         ),

@@ -5,6 +5,7 @@ import 'package:muslim/page/home/tabs/quran.dart';
 import 'package:muslim/page/home/tabs/radio.dart';
 import 'package:muslim/page/home/tabs/sebha.dart';
 import 'package:muslim/page/home/tabs/setting.dart';
+import '../../core/constant/images_assets.dart';
 import '../../core/custom_color.dart';
 import '../../core/custom_text.dart';
 class HomeScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Stack(
       children: [
         Image.asset(
-          "assets/bg3.png",
+          ImagePngLight.background,
           fit: BoxFit.fill,
           width: mediaQuery.width,
           height: mediaQuery.height,),
@@ -48,16 +49,16 @@ class _HomeScreenState extends State<HomeScreen> {
               items: [
                 BottomNavigationBarItem(
                     backgroundColor: primaryColor,
-                    icon:  const ImageIcon(AssetImage("assets/quran.png")),label:quran),
+                    icon:  const ImageIcon(AssetImage(ImagePngLight.quranICon)),label:quran),
                 BottomNavigationBarItem(
                     backgroundColor: primaryColor,
-                    icon: const ImageIcon(AssetImage("assets/sebha.png")),label:sebha),
+                    icon: const ImageIcon(AssetImage(ImagePngLight.sebhaICon)),label:sebha),
                 BottomNavigationBarItem(
                     backgroundColor: primaryColor,
-                    icon: const ImageIcon(AssetImage("assets/hadith.png")),label:hadith),
+                    icon: const ImageIcon(AssetImage(ImagePngLight.hadithICon)),label:hadith),
                 BottomNavigationBarItem(
                     backgroundColor: primaryColor,
-                    icon: const ImageIcon(AssetImage("assets/radio.png")),label:radio),
+                    icon: const ImageIcon(AssetImage(ImagePngLight.radioICon)),label:radio),
                 BottomNavigationBarItem(
                     backgroundColor: primaryColor,
                     icon: const Icon(Icons.settings),label:setting),

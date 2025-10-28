@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muslim/core/custom_color.dart';
 
+import '../../../core/constant/images_assets.dart';
+
 class SebhaTabs extends StatefulWidget {
   const SebhaTabs({super.key});
 
@@ -40,13 +42,8 @@ class _SebhaTabsState extends State<SebhaTabs> with SingleTickerProviderStateMix
     });
 
     await Future.delayed(const Duration(milliseconds: 150));
-
-    // 👈 عملية العد التنازلي والتحقق من الوصول إلى الصفر
     setState(() {
-      // 1. خفض العداد بواحد
       _counter--;
-
-      // 2. التحقق من الوصول إلى الصفر
       if (_counter < 1) {
         // 3. إعادة العداد إلى العدد المستهدف (33)
         _counter = _targetNumber;
@@ -108,7 +105,7 @@ class _SebhaTabsState extends State<SebhaTabs> with SingleTickerProviderStateMix
                         bottom: 0,
                         left: (constraints.maxWidth - (mediaQuery.width * 0.52)) / 2,
                         child: Image.asset(
-                          "assets/body_sebha_logo.png",
+                          ImagePngLight.bodySebha,
                           width: mediaQuery.width * 0.50,
                           fit: BoxFit.contain,
                         ),
@@ -119,7 +116,7 @@ class _SebhaTabsState extends State<SebhaTabs> with SingleTickerProviderStateMix
                         bottom: height * 0.56,
                         left: (constraints.maxWidth - (mediaQuery.width * 0.16)) / 2 + mediaQuery.width * 0.05,
                         child: Image.asset(
-                          "assets/head_sebha_logo.png",
+                          ImagePngLight.headSebha,
                           width: mediaQuery.width * 0.16,
                           fit: BoxFit.contain,
                         ),
