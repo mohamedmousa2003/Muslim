@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../core/constant/images_assets.dart';
 import '../../../core/custom_color.dart';
 import '../custom/divider.dart';
 class HadithTabs extends StatelessWidget {
@@ -11,14 +12,13 @@ class HadithTabs extends StatelessWidget {
     return  Column(
       children: [
         Image.asset(
-          "assets/hadeth_logo.png",
+          ImagePngLight.hadith,
           errorBuilder: (context, error, stackTrace) =>
           const Icon(Icons.error, color: primaryColor, size: 40),
         ),
         const SizedBox(height: 10),
         const DividerCustom(),
-        Text(
-          "الأحاديث",
+        Text( "الأحاديث",
           style: GoogleFonts.elMessiri(
             fontSize: 25,
             fontWeight: FontWeight.w600,
