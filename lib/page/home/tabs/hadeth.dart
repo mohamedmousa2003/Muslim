@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/constant/images_assets.dart';
 import '../../../core/custom_color.dart';
+import '../../../model/hadith_model.dart';
 import '../custom/divider.dart';
-class HadithTabs extends StatelessWidget {
+import '../hadith_details.dart';
+
+class HadithTabs extends StatefulWidget {
   const HadithTabs({super.key});
 
   @override
+  State<HadithTabs> createState() => _HadithTabsState();
+}
+
+class _HadithTabsState extends State<HadithTabs> {
+  List<HadithModel> allHadith = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadHadithFile();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         Image.asset(
           ImagePngLight.hadith,
@@ -18,7 +35,8 @@ class HadithTabs extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         const DividerCustom(),
-        Text( "الأحاديث",
+        Text(
+          "الأحاديث",
           style: GoogleFonts.elMessiri(
             fontSize: 25,
             fontWeight: FontWeight.w600,
@@ -26,8 +44,10 @@ class HadithTabs extends StatelessWidget {
         ),
         const DividerCustom(),
         Expanded(
-          child: ListView.separated(
-            itemCount: 2,
+          child: allHadith.isEmpty
+              ? const Center(child: CircularProgressIndicator())
+              : ListView.separated(
+            itemCount: allHadith.length,
             separatorBuilder: (_, __) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: Row(
@@ -38,20 +58,42 @@ class HadithTabs extends StatelessWidget {
                 ],
               ),
             ),
-            itemBuilder: (context, index) =>
-                _AnimatedSuraItem(title: "", index: index),
+            itemBuilder: (context, index) => _AnimatedSuraItem(
+              title: allHadith[index].hadithName,
+              hadith: allHadith[index], // ✅ أرسل الحديث هنا
+            ),
           ),
         ),
       ],
     );
   }
+
+  Future<void> loadHadithFile() async {
+    final file = await rootBundle.loadString("assets/files/ahadeth.txt");
+    List<String> hadithList = file.split("#");
+    allHadith.clear();
+    for (var h in hadithList) {
+      List<String> lines = h.trim().split("\n");
+      if (lines.isEmpty) continue;
+      String title = lines.first;
+      lines.removeAt(0);
+      List<String> content = lines;
+      allHadith.add(HadithModel(title, content));
+    }
+
+    setState(() {});
+  }
 }
 
 class _AnimatedSuraItem extends StatefulWidget {
   final String title;
-  final int index;
+  final HadithModel hadith;
 
-  const _AnimatedSuraItem({required this.title, required this.index});
+  const _AnimatedSuraItem({
+    required this.title,
+    required this.hadith,
+  });
+
   @override
   State<_AnimatedSuraItem> createState() => _AnimatedSuraItemState();
 }
@@ -72,13 +114,18 @@ class _AnimatedSuraItemState extends State<_AnimatedSuraItem>
       _opacity = 1.0;
     });
     await Future.delayed(const Duration(milliseconds: 200));
-    // Navigator.pushNamed(context, SuraDetails.routeName ,arguments: SuraModel(suraName: widget.title, index: widget.index));
+
+    Navigator.pushNamed(
+      context,
+      HadithDetails.routeName,
+      arguments: widget.hadith, // ✅ استخدم الحديث اللي اتبعت
+    );
+
     debugPrint("Pressed: ${widget.title}");
   }
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: _animateTap,
       child: AnimatedOpacity(

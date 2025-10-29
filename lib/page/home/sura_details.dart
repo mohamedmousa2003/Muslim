@@ -22,7 +22,6 @@ class _SuraDetailsState extends State<SuraDetails> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final args = ModalRoute.of(context)!.settings.arguments;
       model = args as SuraModel;
-
       loadSuraFile(model.index);
     });
   }
