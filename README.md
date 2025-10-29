@@ -5,9 +5,10 @@
 - 🌙 Custom splash screen
 - 🧭 Smooth navigation between screens using Bottom Navigation Bar
 - 🏁 Using `initialRoute` for controlled app navigation
-- 📿 Custom sebha screen
-- Custom quran screen
-- Custom hadith screen 
+- 📿 Custom Sebha screen
+- 📖 Custom Quran screen
+- 📜 Custom Hadith screen
+- 📂 Reads text files from assets
 - read fiel 
 ## 📦 Packages Used
 - [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) – for custom splash screen
