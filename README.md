@@ -17,13 +17,13 @@
 
 ## 📱 Screenshots
 
-|                Quran                  |                 Quran                  |                      Hadith                      |
-|:-------------------------------------:|:--------------------------------------:|:------------------------------------------------:|
-| ![Quran](assets/Screenshot/quran.png) | ![Hadith](assets/Screenshot/hadith.png) | ![Hadith Read](assets/Screenshot/quran_read.png) |
+|                Splash                 |              Quran   Names              |                      Quran                      |
+|:-------------------------------------:|:---------------------------------------:|:------------------------------------------------:|
+| ![Splash](assets/Screenshot/splash.png) | ![Names](assets/Screenshot/quran_read.png) | ![Quran](assets/Screenshot/quran.png) |
 
-|                Sebha                  | 
-|:-------------------------------------:|
-| ![Sebha](assets/Screenshot/sabhe.png) | 
+|                Sebha                  |                 hadith                  |                 hadith  Names                |
+|:-------------------------------------:|:---------------------------------------:|:---------------------------------------:|
+| ![Sebha](assets/Screenshot/sabhe.png) | ![Hadith](assets/Screenshot/hadith.png) | ![Hadith](assets/Screenshot/read_hadith.png) |
 
 
 ## 🛠️ How to Run
